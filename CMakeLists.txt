@@ -1,5 +1,6 @@
-cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
-cmake_policy(VERSION 2.6)
+cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
+cmake_policy(VERSION 3.1)
+set (CMAKE_CXX_STANDARD 11)
 
 project(Tessellation)
 enable_testing()
@@ -40,16 +41,16 @@ if(MSVC AND CMAKE_CL_64)
 	set(FREEGLUT_BINARY_DIRECTORY "win64-vc")
 endif(MSVC AND CMAKE_CL_64)
 
-set(FREEGLUT_LIBRARY freeglut_static)
+set(FREEGLUT_LIBRARY glut)
 
-add_definitions(-DFREEGLUT_STATIC)
+add_definitions(-DFREEGLUT)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/freeglut-2.8.0)
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/external/freeglut-2.8.0/lib/${FREEGLUT_BINARY_DIRECTORY})
 
 if(WIN32)
 	set(FREEGLUT_LIBRARY freeglut_static)
 elseif(UNIX)
-	set(FREEGLUT_LIBRARY freeglut)
+	set(FREEGLUT_LIBRARY glut)
 endif(WIN32)
 
 ################################

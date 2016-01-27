@@ -8,6 +8,7 @@
 // G-Truc Creation
 // www.g-truc.net
 //**********************************
+#include <stdarg.h>
 
 namespace glf
 {
